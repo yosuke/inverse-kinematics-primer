@@ -71,20 +71,8 @@ RTC::ReturnCode_t HandMotionGeneration::onInitialize()
 
 RTC::ReturnCode_t HandMotionGeneration::onExecute(RTC::UniqueId ec_id)
 {
-  if (count < 1000) {
-    m_handpos.data[0] += 0.0004;
-  } else if (count < 2000) {
-    m_handpos.data[1] += 0.0004;
-  } else {
-    m_handpos.data[0] -= 0.0004;
-    m_handpos.data[1] -= 0.0004;
-  }
-  count++;
-  if (count > 3000) {
-    m_handpos.data[0] = 0.2;
-    m_handpos.data[1] = 0.2;
-    count = 0;
-  }
+  m_handpos.data[0] = 0.8;
+  m_handpos.data[1] = 0.1;
 
   m_handposOut.write(); 
 
